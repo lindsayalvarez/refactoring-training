@@ -68,18 +68,15 @@ namespace Refactoring
 
         private static void WritePurchaseDetails(List<User> users, List<Product> products)
         {
-            // Write out new balance
             string json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"Data\Users.json", json);
 
-            // Write out new quantities
             string json2 = JsonConvert.SerializeObject(products, Formatting.Indented);
             File.WriteAllText(@"Data\Products.json", json2);
         }
 
         private static void PrintClosingMessage()
         {
-            // Prevent console from closing
             Console.WriteLine();
             Console.WriteLine("Press Enter key to exit");
             Console.ReadLine();
@@ -87,7 +84,6 @@ namespace Refactoring
 
         private static void PrintPurchaseCancelled()
         {
-            // Quantity is less than zero
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
@@ -254,7 +250,7 @@ namespace Refactoring
 
         private static bool IsValidPassword(string password)
         {
-            bool isValidPassword = false; // Is valid password?
+            bool isValidPassword = false;
 
             if (currentUser.Pwd == password)
             {
